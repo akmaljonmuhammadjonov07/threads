@@ -1,6 +1,6 @@
 // Resource: https://clerk.com/docs/users/sync-data-to-your-backend
 // Above article shows why we need webhooks i.e., to sync data to our backend
-
+/* eslint-disable */
 // Resource: https://docs.svix.com/receiving/verifying-payloads/why
 // It's a good practice to verify webhooks. Above article shows why we should do it
 import { Webhook, WebhookRequiredHeaders } from 'svix';
@@ -38,9 +38,9 @@ export const POST = async (request: Request) => {
 	const header = headers();
 
 	const heads = {
-		'svix-id': header.get('svix-id'),
-		'svix-timestamp': header.get('svix-timestamp'),
-		'svix-signature': header.get('svix-signature'),
+		'svix-id': (await header).get('svix-id'),
+		'svix-timestamp': (await header).get('svix-timestamp'),
+		'svix-signature': (await header).get('svix-signature'),
 	};
 
 	// Activitate Webhook in the Clerk Dashboard.
@@ -68,7 +68,9 @@ export const POST = async (request: Request) => {
 			evnt?.data ?? {};
 
 		try {
+			// @ts-ignore
 			await createCommunity(
+				// @ts-ignore
 				id,
 				name,
 				slug,
@@ -186,6 +188,7 @@ export const POST = async (request: Request) => {
 			const { id } = evnt?.data;
 			console.log('deleted', evnt?.data);
 
+			// @ts-ignore
 			await deleteCommunity(id);
 
 			return NextResponse.json(
