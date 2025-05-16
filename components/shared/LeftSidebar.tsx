@@ -27,7 +27,7 @@ const LeftSidebar = () => {
 							href={link.route}
 							key={link.label}
 							className={`relative flex justify-start text-white gap-4 rounded-lg p-4 ${
-								isActive && 'bg-primary-500 '
+								isActive && 'bg-[#877EFF]'
 							}`}
 						>
 							<Image

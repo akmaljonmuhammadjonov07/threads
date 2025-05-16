@@ -6,7 +6,7 @@ import React from 'react';
 
 export default function Topbar() {
 	return (
-		<nav className='fixed top-0 z-30 flex w-full items-center justify-between bg-[#121417] px-6 py-3'>
+		<nav className='fixed top-0 z-30 border-b border-b-[#1F1F22] flex w-full items-center justify-between bg-[#121417] px-6 py-3'>
 			<Link href='/' className='flex items-center gap-4'>
 				<Image src='/logo.svg' alt='logo' width={28} height={28} />
 				<p className='font-bold text-2xl text-white max-xs:hidden'>Threads</p>

@@ -6,6 +6,7 @@ import Searchbar from '@/components/shared/Searchbar';
 // import Pagination from "@/components/shared/Pagination";
 
 import { fetchUser, fetchUsers } from '@/lib/actions/user.actions';
+import Pagination from '@/components/shared/Pagination';
 
 async function Page({
 	searchParams,
@@ -52,11 +53,11 @@ async function Page({
 				)}
 			</div>
 
-			{/* <Pagination
-        path='search'
-        pageNumber={searchParams?.page ? +searchParams.page : 1}
-        isNext={result.isNext}
-      /> */}
+			<Pagination
+				path='search'
+				pageNumber={query.page ? +query.page : 1}
+				isNext={result.isNext}
+			/>
 		</section>
 	);
 }

@@ -17,7 +17,6 @@ async function Page({ params }: { params: Promise<{ id: string }> }) {
 	const userInfo = await fetchUser(user.id);
 	if (!userInfo?.onboarded) redirect('/onboarding');
 
-	// const thread = await fetchThreadById(resolvedParams.id);
 	return (
 		<section>
 			<ProfileHeader

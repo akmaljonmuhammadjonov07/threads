@@ -16,14 +16,14 @@ async function Page() {
 
 	return (
 		<>
-			<h1 className='head-text'>Activity</h1>
+			<h1 className='text-3xl font-semibold text-white'>Activity</h1>
 
 			<section className='mt-10 flex flex-col gap-5'>
 				{activity.length > 0 ? (
 					<>
 						{activity.map(activity => (
 							<Link key={activity._id} href={`/thread/${activity.parentId}`}>
-								<article className='activity-card'>
+								<article className='flex items-center gap-2 rounded-md bg-dark-2 px-7 py-4'>
 									<Image
 										src={activity.author.image}
 										alt='user_logo'
@@ -31,8 +31,8 @@ async function Page() {
 										height={20}
 										className='rounded-full object-cover'
 									/>
-									<p className='!text-small-regular text-light-1'>
-										<span className='mr-1 text-primary-500'>
+									<p className='text-sm font-normal text-white'>
+										<span className='mr-1 text-[#877EFF]'>
 											{activity.author.name}
 										</span>{' '}
 										replied to your thread
@@ -42,7 +42,9 @@ async function Page() {
 						))}
 					</>
 				) : (
-					<p className='!text-base-regular text-light-3'>No activity yet</p>
+					<p className='text-base font-normal text-[#7878A3]'>
+						No activity yet
+					</p>
 				)}
 			</section>
 		</>
