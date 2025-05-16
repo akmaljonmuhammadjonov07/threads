@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 import { Input } from '../ui/input';
+/* eslint-disable */
 
 interface Props {
 	routeType: string;

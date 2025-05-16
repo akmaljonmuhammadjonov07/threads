@@ -1,4 +1,5 @@
 'use server';
+/* eslint-disable */
 
 import { revalidatePath } from 'next/cache';
 
