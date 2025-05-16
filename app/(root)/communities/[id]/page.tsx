@@ -10,11 +10,17 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 import { fetchCommunityDetails } from '@/lib/actions/community.actions';
 
-async function Page({ params }: { params: { id: string } }) {
+async function Page({
+	searchParams,
+}: {
+	searchParams: Promise<{ [key: string]: string | undefined }>;
+}) {
 	const user = await currentUser();
 	if (!user) return null;
 
-	const communityDetails = await fetchCommunityDetails(params.id);
+	const params = await searchParams;
+	const communityId = params.id as string;
+	const communityDetails = await fetchCommunityDetails(communityId);
 
 	return (
 		<section>
